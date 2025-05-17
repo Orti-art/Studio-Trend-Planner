@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>בוט טרנדים אינטראקטיבי</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      direction: rtl;
+      padding: 2rem;
+    }
+    .choice {
+      display: inline-block;
+      margin: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #eee;
+      border-radius: 1rem;
+      cursor: pointer;
+    }
+    .choice:hover {
+      background-color: #ccc;
+    }
+    #input {
+      margin-top: 2rem;
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+    }
+    #submit {
+      margin-top: 1rem;
+      padding: 1rem;
+      font-size: 1rem;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h2>בחרי את סגנון המותג שלך:</h2>
+  <div id="choices">
+    <span class="choice" onclick="addChoice('סגנון: בוהו')">בוהו</span>
+    <span class="choice" onclick="addChoice('סגנון: אורבני')">אורבני</span>
+    <span class="choice" onclick="addChoice('סגנון: מינימליסטי')">מינימליסטי</span>
+    <span class="choice" onclick="addChoice('סגנון: טבעי')">טבעי</span>
+    <span class="choice" onclick="addChoice('סגנון: נוסטלגי')">נוסטלגי</span>
+  </div>
+
+  <h2>בחרי את סוג המוצר:</h2>
+  <div id="product">
+    <span class="choice" onclick="addChoice('מוצר: בגדי תינוקות')">בגדי תינוקות</span>
+    <span class="choice" onclick="addChoice('מוצר: בגדי ילדים')">בגדי ילדים</span>
+    <span class="choice" onclick="addChoice('מוצר: אקססוריז לתינוקות')">אקססוריז לתינוקות</span>
+    <span class="choice" onclick="addChoice('מוצר: עיצוב חדרי ילדים')">עיצוב חדרי ילדים</span>
+  </div>
+
+  <h2>בחרי את טווח הגילאים:</h2>
+  <div id="ages">
+    <span class="choice" onclick="addChoice('גיל: לידה עד שנה')">0–1</span>
+    <span class="choice" onclick="addChoice('גיל: שנה עד 3')">1–3</span>
+    <span class="choice" onclick="addChoice('גיל: 3 עד 5')">3–5</span>
+    <span class="choice" onclick="addChoice('גיל: 5 עד 9')">5–9</span>
+  </div>
+
+  <h2>בחרי שלב התפתחות או עניין:</h2>
+  <div id="development">
+    <span class="choice" onclick="addChoice('שלב: יילוד וזחילה')">יילוד וזחילה</span>
+    <span class="choice" onclick="addChoice('שלב: צעדים ראשונים')">צעדים ראשונים</span>
+    <span class="choice" onclick="addChoice('שלב: משחקי דמיון')">משחקי דמיון</span>
+    <span class="choice" onclick="addChoice('שלב: כניסה לגן')">כניסה לגן</span>
+    <span class="choice" onclick="addChoice('שלב: כניסה לבית ספר')">כניסה לבית ספר</span>
+  </div>
+
+  <h2>בחרי את עונת התחזית:</h2>
+  <div id="season">
+    <span class="choice" onclick="addChoice('עונה: סתיו/חורף 2025')">סתיו/חורף 2025</span>
+    <span class="choice" onclick="addChoice('עונה: אביב/קיץ 2026')">אביב/קיץ 2026</span>
+  </div>
+
+  <textarea id="input" rows="10" placeholder="התשובה שלך תופיע כאן…"></textarea><br>
+  <button id="submit" onclick="sendAnswer()">שלח</button>
+
+  <script>
+    function addChoice(text) {
+      const input = document.getElementById('input');
+      input.value += (input.value ? '\n' : '') + text;
+    }
+
+    function sendAnswer() {
+      const value = document.getElementById('input').value;
+      alert('נשלח: ' + value);
+      // כאן אפשר להחליף את alert בשליחה ל-GPT
+    }
+  </script>
+</body>
+</html>
